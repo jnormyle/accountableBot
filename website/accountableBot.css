@@ -1,0 +1,27 @@
+
+p{
+  font-family: arial;
+  font-weight: bold;
+}
+
+.button{
+  background-color: #2a609a;
+	width: 130px;
+	height: 60px;
+  color: white;
+  outline: none;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.block-display button{
+  margin-bottom:5px;
+  display:block;
+}
+
+.button:hover{
+  background-color: #32CD32;
+  font-size: 20px;
+  transition: 0.5s;
+}

@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Accountable Bot</title>
+    <link rel="stylesheet" href="accountableBot.css">
+  </head>
+  <body>
+    <p>
+
+  <input type="number" id="userInputWork">
+  <button title = "Hours Worked" onclick="getValue()">Hours Worked</button>
+
+  <input type="number" id="userInputGame">
+  <button title = "Hours Gamed" onclick="getValue()">Hours Gamed</button>
+
+  <input type="boolean" >
+  <button id="userInputWO"> Click if you are Working out Today</button>
+
+
+    <script>
+
+      
+      //Initialize variables (duh
+      let buttonState = false;
+
+      let todayWork = 0;
+      let todayGame = 0;
+
+      const workOut = document.getElementById("userInputWO");
+      let todayWO = false;
+
+      button.addEventListener("click", function() {
+      todayWO = !todayWO; // Toggle the boolean value
+      console.log("Boolean value:", todayWO);
+      // You can add more actions here based on the boolean value
+      if(todayWO) {
+        workOut.textContent = "ON";
+      } else {
+      workOut.textContent = "OFF";
+      }
+    });
+
+      //Take user input
+
+      function getMetrics() {
+}
+
+    </script>
+  </p>
+  </body>
+</html>
