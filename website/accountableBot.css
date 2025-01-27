@@ -4,7 +4,7 @@ p{
   font-weight: bold;
 }
 
-.button{
+button{
   background-color: #2a609a;
 	width: 130px;
 	height: 60px;
@@ -15,12 +15,12 @@ p{
   cursor: pointer;
 }
 
-.block-display button{
+block-display button{
   margin-bottom:5px;
   display:block;
 }
 
-.button:hover{
+button:hover{
   background-color: #32CD32;
   font-size: 20px;
   transition: 0.5s;
