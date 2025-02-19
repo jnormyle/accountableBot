@@ -4,7 +4,22 @@ p{
   font-weight: bold;
 }
 
-.button{
+p1{
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+header{
+  width: 260px;
+  height: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 40px;
+}
+
+button{
   background-color: #2a609a;
 	width: 130px;
 	height: 60px;
@@ -15,12 +30,22 @@ p{
   cursor: pointer;
 }
 
-.block-display button{
+
+
+#userInputWO {
+
+margin-left: 60px;
+margin-top: 15px;
+
+
+}
+
+block-display button{
   margin-bottom:5px;
   display:block;
 }
 
-.button:hover{
+button:hover{
   background-color: #32CD32;
   font-size: 20px;
   transition: 0.5s;
