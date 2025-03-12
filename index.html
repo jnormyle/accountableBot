@@ -5,61 +5,49 @@
     <link rel="stylesheet" href="accountableBot.css">
   </head>
   <body>
-    <p>
+    <header> Accountable Bot </header>
+    <p1>
+      <input type="number" id="userInputWork">
+      <button title="Hours Worked" onclick="sendData()">Hours Worked</button>
 
-  <header> Accountable Bot </header>
+      <input type="number" id="userInputGame">
+      <button title="Hours Gamed" onclick="sendData()">Hours Gamed</button>
 
-  <p1>
+      <button id="userInputWO" onclick="setWorkingOutTrue()">Working out?</button>
 
-  <input type="number" id="userInputWork">
-  <button title = "Hours Worked" onclick="getValue()">Hours Worked</button>
-
-  <input type="number" id="userInputGame">
-  <button title = "Hours Gamed" onclick="getValue()">Hours Gamed</button>
-
- <button id="userInputWO" onclick="setWorkingOutTrue()">Working out</button>
-
-  </p1>
-
+      <button id="submitData" onclick="sendData()">Submit Data</button>
+    </p1>
 
     <script>
+      var todayWorkHours;
+      var todayGameHours;
+      var todayExercise = false;
 
-      //Gotta wrtie logic to store those values
+      function setWorkingOutTrue() {
+        todayExercise = true;
+        console.log("Working out today: " + todayExercise);
+      }
 
+      function sendData() {
+        todayWorkHours = document.getElementById('userInputWork').value;
+        todayGameHours = document.getElementById('userInputGame').value;
 
-    var todayWorkHours = document.getElementById('userInputWork').value;
-
-    var todayGameHours = document.getElementById('userInputGame').value;
-
-
-    function storeWorkHours(){
-
-      
-
-    }
-
-
-    function storeGamerHours(){
-
-    }
-
-
-
-    function setWorkingOutTrue() {
-
-    todayExercise = true;
-
-    console.log("Working out today: " + todayExercise); 
-    
-  }
-
-
-
-
-
-
-
+        // Send the data to the server
+        fetch('http://localhost:3000/store-data', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            workHours: todayWorkHours,
+            gameHours: todayGameHours,
+            workingOut: todayExercise
+          })
+        })
+        .then(response => response.json())
+        .then(data => console.log('Data stored successfully:', data))
+        .catch((error) => console.error('Error storing data:', error));
+      }
     </script>
-  </p>
   </body>
 </html>
