@@ -26,21 +26,19 @@ app.use(express.json());  // Use Express's built-in JSON parser
 // Function to write data to CSV
 const writeToCSV = (data, filePath) => {
   try {
-    const csv = parse(data);  // Convert the data to CSV format
-    const csvOptions = { flag: 'a' };  // Append to the file if it exists
-
-    // Write CSV to the specified file
-    fs.writeFile(filePath, csv + '\n', csvOptions, (err) => {
+    const csv = parse(data, { header: false }); // No headers each time
+    fs.appendFile(filePath, csv + '\n', (err) => {
       if (err) {
-        console.error("Error writing to file:", err);
+        console.error("Error appending to file:", err);
       } else {
-        console.log("Data successfully written to", filePath);
+        console.log("Data successfully appended to", filePath);
       }
     });
   } catch (error) {
     console.error("Error converting to CSV:", error);
   }
 };
+
 
 // Route to handle storing data
 app.post('/store-data', (req, res) => {
