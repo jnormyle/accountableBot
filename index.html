@@ -30,8 +30,6 @@
     var month = String(today.getMonth()).padStart(2, '0'); 
     var year = today.getFullYear();
 
-    today = month + '/' + day + '/' + year;
-
       function setWorkingOutTrue() {
         todayExercise = true;
         console.log("Working out today: " + todayExercise);
@@ -40,6 +38,7 @@
       function sendData() {
         todayWorkHours = document.getElementById('userInputWork').value;
         todayGameHours = document.getElementById('userInputGame').value;
+        today = month + '/' + day + '/' + year;
 
         // Send the data to the server
         fetch('http://localhost:3000/store-data', {
