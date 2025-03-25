@@ -4,6 +4,16 @@ import { parse } from 'json2csv';
 import path from 'path';
 import cors from 'cors';
 
+
+//According to ChatGPT, this will resolve issues with dirname. required to write to a local csv
+
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+
 const app = express();
 const port = 3000;
 
@@ -34,7 +44,7 @@ const writeToCSV = (data, filePath) => {
 
 // Route to handle storing data
 app.post('/store-data', (req, res) => {
-  const { workHours, gameHours, workingOut } = req.body;
+  const { today, workHours, gameHours, workingOut } = req.body;
 
   // Make sure the data is valid
   if (!workHours || !gameHours || typeof workingOut !== 'boolean') {
@@ -44,7 +54,8 @@ app.post('/store-data', (req, res) => {
   const data = [{
     workHours: workHours,
     gameHours: gameHours,
-    workingOut: workingOut
+    workingOut: workingOut,
+    today: today
   }];
 
   const filePath = path.join(__dirname, 'accountableData.csv'); // Path to store the CSV file

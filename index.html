@@ -23,6 +23,15 @@
       var todayGameHours;
       var todayExercise = false;
 
+      // Saving date to add to the .csv, Jan is 0 
+
+    var today = new Date();
+    var day = String(today.getDate()).padStart(2, '0');
+    var month = String(today.getMonth()).padStart(2, '0'); 
+    var year = today.getFullYear();
+
+    today = month + '/' + day + '/' + year;
+
       function setWorkingOutTrue() {
         todayExercise = true;
         console.log("Working out today: " + todayExercise);
@@ -39,6 +48,7 @@
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
+            date: today,
             workHours: todayWorkHours,
             gameHours: todayGameHours,
             workingOut: todayExercise
