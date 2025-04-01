@@ -25,10 +25,10 @@
 
       // Saving date to add to the .csv, Jan is 0 
 
-    var today = new Date();
-    var day = String(today.getDate()).padStart(2, '0');
-    var month = String(today.getMonth()).padStart(2, '0'); 
-    var year = today.getFullYear();
+      var today = new Date();
+      var day = String(today.getDate()).padStart(2, '0');
+      var month = String(today.getMonth() + 1).padStart(2, '0'); // Add 1 to get the correct month
+      var year = today.getFullYear();
 
       function setWorkingOutTrue() {
         todayExercise = true;
@@ -38,7 +38,16 @@
       function sendData() {
         todayWorkHours = document.getElementById('userInputWork').value;
         todayGameHours = document.getElementById('userInputGame').value;
-        today = month + '/' + day + '/' + year;
+        // Format the date as MM/DD/YYYY
+        var formattedDate = month + '/' + day + '/' + year;
+  
+        // Assuming you're sending or saving this formattedDate along with other data:
+      console.log("Today's date: " + formattedDate);
+  
+  // Here you would continue your logic to save the data to the CSV
+  // Example: saveData(formattedDate, todayWorkHours, todayGameHours);
+      }
+    
 
         // Send the data to the server
         fetch('http://localhost:3000/store-data', {
