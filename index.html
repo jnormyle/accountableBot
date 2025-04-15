@@ -42,12 +42,7 @@
         var formattedDate = month + '/' + day + '/' + year;
   
         // Assuming you're sending or saving this formattedDate along with other data:
-      console.log("Today's date: " + formattedDate);
-  
-  // Here you would continue your logic to save the data to the CSV
-  // Example: saveData(formattedDate, todayWorkHours, todayGameHours);
-      }
-    
+        console.log("Today's date: " + formattedDate);
 
         // Send the data to the server
         fetch('http://localhost:3000/store-data', {
