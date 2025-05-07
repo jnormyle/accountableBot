@@ -8,11 +8,19 @@ var today = new Date();
 var day = String(today.getDate()).padStart(2, '0');
 var month = String(today.getMonth() + 1).padStart(2, '0'); // Add 1 to get the correct month
 var year = today.getFullYear();
+let alreadySent = false;
 
 function setWorkingOutTrue() {
   todayExercise = true;
   console.log("Working out today: " + todayExercise);
   }
+
+if (alreadySent = true) {
+  console.log("Today's data was already entered, try again tomorrow")
+
+  document.getElementById('Annoucements').innerHTML = "Today's data wa already entered, try again tomorrow";
+}
+
 
 function sendData() {
   todayWorkHours = document.getElementById('userInputWork').value;
@@ -39,4 +47,6 @@ function sendData() {
   .then(response => response.json())
   .then(data => console.log('Data stored successfully:', data))
   .catch((error) => console.error('Error storing data:', error));
+  alreadySent = true;
   }
+
