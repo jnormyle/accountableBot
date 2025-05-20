@@ -29,7 +29,7 @@ def send_email():
         print(f"[{datetime.now()}] ❌ Error sending email: {e}")
 
 # Schedule task for 9:00 AM
-schedule_time = "16:00"
+schedule_time = "10:00"
 schedule.every().day.at(schedule_time).do(send_email)
 
 print(f"📆 Bot is running. Next email scheduled at {schedule_time} daily.")

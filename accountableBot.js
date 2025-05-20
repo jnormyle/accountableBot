@@ -8,7 +8,7 @@ const year = today.getFullYear();
 const formattedDate = month + '/' + day + '/' + year;
 
 
-const announcements = document.getElementById('Annoucements');
+const announcements = document.getElementById('Announcements');
 
 //checking localStorage for values ty CHATGPT
 const lastSubmittedDate = localStorage.getItem('lastSubmittedDate');
@@ -21,7 +21,6 @@ if (lastSubmittedDate !== formattedDate) {
   localStorage.setItem('lastSubmittedDate', formattedDate);
 }
 
-let alreadySent = false;
 let alreadySent = localStorage.getItem('alreadySent') === 'true';
 let todayExercise = localStorage.getItem('todayExercise') === 'true';
 let todayWorkHours = localStorage.getItem('todayWorkHours') || '';
@@ -38,14 +37,13 @@ if (alreadySent) {
 }
 
 
-function setWorkingOutTrue() {
-  todayExercise = true;
-  console.log("Working out today: " + todayExercise);
-  }
+window.setWorkingOutTrue = function () {
+  console.log("Working out true");
+  todayExercise = true
+};
 
-
-function sendData() {
-  if (alreadySent) {
+window.sendData = function () {
+  if(alreadySent) {
     alert("You've already submitted today's data");
     return;
   }
@@ -56,13 +54,11 @@ function sendData() {
   localStorage.setItem('todayWorkHours', todayWorkHours);
   localStorage.setItem('todayGameHours', todayGameHours);
 
-
-  
   // Assuming you're sending or saving this formattedDate along with other data:
   console.log("Today's date: " + formattedDate);
 
   // Send the data to the server, ty chatgpt 
-    fetch('http://localhost:3000/store-data', {
+  fetch('http://localhost:3000/store-data', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
