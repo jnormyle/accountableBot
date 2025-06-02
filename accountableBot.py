@@ -4,7 +4,7 @@ import time
 from datetime import datetime, timedelta
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-
+#  file sends the email 
 # Email settings
 sender_email = "normylejacob7@gmail.com"
 receiver_email = "normylejacob7@gmail.com"

@@ -40,9 +40,9 @@ const writeToCSV = (data, filePath) => {
 };
 
 
-// Route to handle storing data
+// Route to handle storing data, variable correspond with accountableBot.js
 app.post('/store-data', (req, res) => {
-  const { today, workHours, gameHours, workingOut } = req.body;
+  const { workHours, gameHours, workingOut, date } = req.body;
 
   // Make sure the data is valid
   if (!workHours || !gameHours || typeof workingOut !== 'boolean') {
@@ -53,7 +53,7 @@ app.post('/store-data', (req, res) => {
     workHours: workHours,
     gameHours: gameHours,
     workingOut: workingOut,
-    today: today
+    date: date
   }];
 
   const filePath = path.join(__dirname, 'accountableData.csv'); // Path to store the CSV file
