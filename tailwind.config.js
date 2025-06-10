@@ -1,7 +1,13 @@
+// tailwind.config.js
 module.exports = {
-  content: ["./website/**/*.html", "./docs/**/*.html"],
+  content: ["./**/*.html"],
+  safelist: ['font-mulish'], // <--- keep this!
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'mulish': ['Mulish', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
-}
+};
