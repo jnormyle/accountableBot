@@ -29,14 +29,6 @@ let todayGameHours = localStorage.getItem('todayGameHours') || '';
 document.getElementById('userInputWork').value = todayWorkHours;
 document.getElementById('userInputGame').value = todayGameHours;
 
-
-if (alreadySent) {
-  console.log("Today's data was already entered, try again tomorrow")
-
-  announcements.innerHTML = "Today's data was already entered, try again tomorrow";
-}
-
-
 window.setWorkingOutTrue = function () {
   console.log("Working out true");
   todayExercise = true
@@ -44,7 +36,7 @@ window.setWorkingOutTrue = function () {
 
 window.sendData = function () {
   if(alreadySent) {
-    alert("You've already submitted today's data");
+    announcements.innerHTML = "Today's data was already entered, try again tomorrow";
     return;
   }
 
@@ -64,10 +56,10 @@ window.sendData = function () {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      date: formattedDate,
       workHours: todayWorkHours,
       gameHours: todayGameHours,
-      workingOut: todayExercise
+      workingOut: todayExercise,
+      date: formattedDate
     })
   })
   .then(response => response.json())

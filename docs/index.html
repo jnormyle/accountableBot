@@ -3,60 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <title>Accountable Bot</title>
-    <link rel="stylesheet" href="output.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/output.css" />
     <script src="accountableBot.js" defer></script>
   </head>
-  <body class="bg-gray-50 min-h-screen flex flex-col items-center justify-start py-10 px-4">
+  <body class="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-8">
 
-    <!-- Header -->
-    <header class="w-[260px] h-[120px] mx-auto font-mono text-4xl text-center flex items-center justify-center mb-8">
-      Accountable Bot
-    </header>
+    <div class="max-w-md w-full space-y-10">
 
-    <!-- Input Section -->
-  <div class="flex justify-center w-full">
-    <div class="flex flex-col gap-3 p-5 bg-white rounded-[10px] shadow-md w-fit text-base font-sans items-center">
+      <!-- Header -->
+      <header class="text-center text-4xl font-mulish text-gray-800">
+        Accountable Bot
+      </header>
 
-      <div class="flex flex-col">
-        <label for="userInputWork" class="mb-1 font-bold">Hours Worked</label>
-        <input
-          type="number"
-          id="userInputWork"
-          class="w-[250px] px-4 py-2 border-2 border-gray-300 rounded-lg bg-white transition-all shadow-inner focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-300"
-        />
+      <!-- Input Section -->
+      <div class="bg-white p-6 rounded-2xl shadow-lg space-y-6 font-sans">
+
+        <div class="space-y-2">
+          <label for="userInputWork" class="block text-sm font-semibold text-gray-700">Hours Worked</label>
+          <input
+            type="number"
+            id="userInputWork"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white shadow-inner focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-300"
+          />
+        </div>
+
+        <div class="space-y-2">
+          <label for="userInputGame" class="block text-sm font-semibold text-gray-700">Hours Gamed</label>
+          <input
+            type="number"
+            id="userInputGame"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white shadow-inner focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-300"
+          />
+        </div>
+
+        <div class="flex flex-col gap-3 items-center mt-4">
+          <button
+            id="userInputWO"
+            onclick="setWorkingOutTrue()"
+            class="bg-[#2a609a] w-full py-3 rounded-md text-white text-base font-semibold hover:bg-sky-700 transition duration-300"
+          >
+            Working out?
+          </button>
+
+          <button
+            id="sendData"
+            onclick="sendData()"
+            class="bg-[#2a609a] w-full py-3 rounded-md text-white text-base font-semibold hover:bg-sky-700 transition duration-300"
+          >
+            Send Data
+          </button>
+        </div>
+
       </div>
 
-      <div class="flex flex-col">
-        <label for="userInputGame" class="mb-1 font-bold">Hours Gamed</label>
-        <input
-          type="number"
-          id="userInputGame"
-          class="w-[250px] px-4 py-2 border-2 border-gray-300 rounded-lg bg-white transition-all shadow-inner focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-300"
-        />
+      <!-- Announcements -->
+      <div class="mt-8 w-full" id="Announcements">
+        <!-- Dynamic content can be injected here -->
       </div>
 
-      <button
-        id="userInputWO"
-        onclick="setWorkingOutTrue()"
-        class="bg-[#2a609a] w-[130px] h-[60px] text-white text-base border-none cursor-pointer mt-4 hover:bg-[rgb(50,205,50)] hover:text-lg transition-all duration-500"
-      >
-        Working out?
-      </button>
-
-      <button
-        id="sendData"
-        onclick="sendData()"
-        class="bg-[#2a609a] w-[130px] h-[60px] text-white text-base border-none cursor-pointer mt-2 hover:bg-[rgb(50,205,50)] hover:text-lg transition-all duration-500"
-      >
-        Send Data
-      </button>
-
-    </div>
-  </div>
-
-    <!-- Announcements-->
-    <div class="mt-10 w-full max-w-xl" id="Announcements">
-      <!-- Dynamic content can be injected here -->
     </div>
 
   </body>
