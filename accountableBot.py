@@ -28,8 +28,7 @@ def send_email():
     except Exception as e:
         print(f"[{datetime.now()}] ❌ Error sending email: {e}")
 
-# Schedule task for 9:00 AM
-schedule_time = "10:00"
+schedule_time = "18:00"  # 6:00 PM in 24-hour format
 schedule.every().day.at(schedule_time).do(send_email)
 
 print(f"📆 Bot is running. Next email scheduled at {schedule_time} daily.")
