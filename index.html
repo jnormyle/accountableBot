@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Accountable Bot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="output.css" />
+    <script src="accountableBot.js" defer></script>
+  </head>
+  <body class="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-8">
+
+    <div class="max-w-md w-full space-y-10">
+
+      <!-- Header -->
+      <header class="text-center text-4xl font-mulish text-gray-800">
+        Accountable Bot
+      </header>
+
+      <!-- Input Section -->
+      <div class="bg-white p-6 rounded-2xl shadow-lg space-y-6 font-sans">
+
+        <div class="space-y-2">
+          <label for="userInputWork" class="block text-sm font-semibold text-gray-700">Hours Worked</label>
+          <input
+            type="number"
+            id="userInputWork"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white shadow-inner focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-300"
+          />
+        </div>
+
+        <div class="space-y-2">
+          <label for="userInputGame" class="block text-sm font-semibold text-gray-700">Hours Gamed</label>
+          <input
+            type="number"
+            id="userInputGame"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white shadow-inner focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-300"
+          />
+        </div>
+
+        <div class="flex flex-col gap-3 items-center mt-4">
+          <button
+            id="userInputWO"
+            onclick="setWorkingOutTrue()"
+            class="bg-[#2a609a] w-full py-3 rounded-md text-white text-base font-semibold hover:bg-sky-700 transition duration-300"
+          >
+            Working out?
+          </button>
+
+          <button
+            id="sendData"
+            onclick="sendData()"
+            class="bg-[#2a609a] w-full py-3 rounded-md text-white text-base font-semibold hover:bg-sky-700 transition duration-300"
+          >
+            Send Data
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Announcements -->
+      <div class="mt-8 w-full" id="Announcements">
+        <!-- Dynamic content can be injected here -->
+      </div>
+
+    </div>
+
+  </body>
+</html>
